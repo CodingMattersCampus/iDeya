@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Inventory;
 
 class InventoryController extends Controller
 {
@@ -13,7 +14,7 @@ class InventoryController extends Controller
      */
     public function index()
     {
-        return view('inventory');
+        return view('inventory.index');
     }
 
     /**
@@ -23,7 +24,7 @@ class InventoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('inventory.create');
     }
 
     /**
@@ -34,7 +35,9 @@ class InventoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+           $data = $request->only('item name', 'quantity','date updated');  
+            Inventory::create($data);
+        return redirect()->route('inventory.index');
     }
 
     /**
@@ -45,7 +48,7 @@ class InventoryController extends Controller
      */
     public function show($id)
     {
-        //
+     return view();
     }
 
     /**

@@ -11,7 +11,7 @@
                 <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
-                    <table>
+                    <table class="table table-responsive">
                         <thead>
                         <tr>
                             <th>Name</th>
@@ -21,7 +21,7 @@
                         <tbody>
                             @foreach($events as $event)
                                 <tr>
-                                    <td>{{$event->name}}</td>
+                                    <td><a href="{{route('events.show', $event)}}">{{$event->name}}</a></td>
                                     <td>{{$event->description}}</td>
                                 </tr>
                             @endforeach
