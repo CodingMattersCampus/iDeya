@@ -16,6 +16,9 @@ Route::group(['middleware' => 'guest'], function() {
 
     Route::post('/guest',"Guest\Attendance")->name('guest.attendance');
     Route::get('/guest/{user}/welcome',"Guest\Welcome")->name('guest.welcome');
+    Route::view('/guest/registration',"guest.registration")->name('guest.registration');
+
+
 
     Route::group(['prefix'=> "account", "namespace" => "Account"], function (){
         Route::view('/{user}/change-password',"co-working.changepassword")->name('account.password.change');
