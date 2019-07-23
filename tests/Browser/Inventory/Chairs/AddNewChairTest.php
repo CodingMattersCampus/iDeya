@@ -18,6 +18,7 @@ class AddNewChairTest extends DuskTestCase
      * A Dusk test example.
      *
      * @group Inventory
+     * @group Appliance
      * @test
      */
 
@@ -32,11 +33,12 @@ class AddNewChairTest extends DuskTestCase
             ]);
             $browser->loginAs($user)->visit(route('inventory.create'))
                 ->type('name', $brand)
+                ->select('category','Appliance')
                 ->type('description', $this->faker->sentence)
                 ->type('quantity', 21)
                 ->type('brand', 'Mandaue Foam')
                 ->click('#submit')
-                ->assertSee($brand);
+                ->assertSee('Appliance');
         });
     }
     /**
