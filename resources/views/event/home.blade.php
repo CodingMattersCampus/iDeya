@@ -7,9 +7,9 @@
         <div class="col-md-10">
             <div class="card text-center">
                 <div class="card-header">
-                    <h5>Not an event participant? Log-in here:</h5>
+                    <h5>Not an event participant? Sign up here:</h5>
                     <div class="btn-group" role="group">
-                        <a class="btn btn-outline-secondary" id="Co-Working-Guest" href="{{route('co-working.coworking-registration-and-login-form')}}">Co-working / Guest</a>
+                        <a class="btn btn-outline-secondary" id="Co-Working-Guest" href="{{route('guest.registration')}}">Guest</a>
                     </div>
                 </div>
                 <div class="card-body">
