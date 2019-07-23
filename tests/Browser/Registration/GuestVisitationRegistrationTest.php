@@ -25,7 +25,7 @@ class GuestVisitationRegistrationTest extends DuskTestCase
                 ->type('contact_number', '09358714654')
                 ->type('schoolorganization', 'MSU-IIT')
                 ->select('purpose', 'visitation')
-                ->click('#submit')
+                ->click('#signup')
                 ->assertSee('Welcome, Jane');
         });
     }
@@ -45,7 +45,7 @@ class GuestVisitationRegistrationTest extends DuskTestCase
                 ->type('contact_number', '09358714654')
                 ->type('schoolorganization', 'MSU-IIT')
                 ->select('purpose', 'visitation')
-                ->click('#submit')
+                ->click('#signup')
                 ->assertSee('The email field is required.');
         });
     }
@@ -64,7 +64,7 @@ class GuestVisitationRegistrationTest extends DuskTestCase
                 ->type('contact_number', '09358714654')
                 ->type('schoolorganization', 'MSU-IIT')
                 ->select('purpose', 'visitation')
-                ->click('#submit')
+                ->click('#signup')
                 ->assertSee('The first name field is required.')
                 ->assertSee('The first name field is required.');
         });
@@ -85,7 +85,7 @@ class GuestVisitationRegistrationTest extends DuskTestCase
                 ->type('email', 'jane@gmail.com')
                 ->type('schoolorganization', 'MSU-IIT')
                 ->select('purpose', 'visitation')
-                ->click('#submit')
+                ->click('#signup')
                 ->assertSee('The contact number field is required.');
         });
     }
