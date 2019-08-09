@@ -39,6 +39,9 @@
             <div class="mr-4">
               <a href="{{route('registration')}}" class="inline-block text-sm font-medium px-6 py-2 leading-none border rounded-full text-red-600 border-red-600 hover:border-transparent hover:text-white hover:bg-red-600 mt-4 lg:mt-0">Guest</a>
             </div>
+            <div class="mr-4">
+              <a href="{{route('office.login')}}" class="inline-block text-sm font-medium px-6 py-2 leading-none border rounded-full text-red-600 border-red-600 hover:border-transparent hover:text-white hover:bg-red-600 mt-4 lg:mt-0">User</a>
+            </div>
           </div>
         </nav>
         <main class="py-4">
