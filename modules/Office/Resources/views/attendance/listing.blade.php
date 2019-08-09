@@ -39,5 +39,34 @@
     </div>
     </section>
 
+    <section>
+    <?php $i = 1;  ?>
+    <div class="px-3 py-4 justify-center">
+        <h1>Employee</h1>
+        <table class="w-full text-md bg-white shadow-md rounded mb-4">
+            <tbody>
+                <tr class="border-b">
+                    <th class="text-left p-3 px-5"></th>
+                    <th class="text-left p-3 px-5">Time - In</th>
+                    <th class="text-left p-3 px-5">Full Name</th>
+                    <th class="text-left p-3 px-5">Contact Number</th>
+                    <th class="text-left p-3 px-5">Email</th>
+                    <th class="text-left p-3 px-5">Position</th>
+                </tr>
+                @foreach($employeeAttendance as $employee)
+                <tr class="border-b hover:bg-orange-100 bg-gray-100">
+                    <td class="p-3 px-5">{{$i++}}</td>
+                    <td class="p-3 px-5">{{$employee->created_at}}</td>
+                    <td class="p-3 px-5">{{$employee->fullName()}}</td>
+                    <td class="p-3 px-5">{{$employee->contact_number}}</td>
+                    <td class="p-3 px-5">{{$employee->email}}</td>
+                    <td class="p-3 px-5"> {{$employee->position}}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+    </section>
+
 </div>
 @endsection
