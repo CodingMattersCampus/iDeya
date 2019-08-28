@@ -87,8 +87,10 @@ class EventListingController extends Controller
      * @param int $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, Event $event)
     {
-        //
+        $data = $request->except('_token');
+        $event->delete();
+        return redirect()->route('adminevent.index');
     }
 }

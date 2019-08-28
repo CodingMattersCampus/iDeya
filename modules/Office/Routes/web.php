@@ -47,6 +47,7 @@ Route::group(['middleware'=> 'auth'], function(){
             Route::get('/{event}/detail', 'EventDetailController')->name('adminevent.detail');
             Route::get('/{event}/detail/edit', 'EventListingController@edit')->name('adminevent.edit');
             Route::patch('/{event}/detail','EventListingController@update')->name('adminevent.update');
+            Route::delete('/{event}', 'EventListingController@destroy')->name('adminevent.delete');
             Route::post('/{event}/create/speaker', 'CreateSpeakerController')->name('adminevent.speaker.add');
             Route::get('{event}/speaker', 'AddEventSpeakerController')->name('adminevent.speaker');
         });

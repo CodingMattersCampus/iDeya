@@ -11,11 +11,18 @@
 						<span class="text-base font-semibold uppercase text-red-700">General Details</span>
 					</div>
 					<div class="mb-2 flex justify-between">
+						<!-- UPDATE -->
 						<span class="text-right text-sm rounded-full bg-blue-500 px-4 text-white hover:bg-blue-600">
 							<a href="{{route('adminevent.edit', compact('event'))}}">Update</a>
 						</span>
+						<!-- DELETE -->
 						<span class="text-right text-sm rounded-full bg-red-500 px-4 text-white hover:bg-red-600">
-							<a href="#">Delete</a>
+							<form method="POST" action="{{route('adminevent.delete', compact('event'))}}" >
+								@method('DELETE')
+								<input class="bg-red-500 hover:bg-red-600" type="submit" value="Delete" />
+							    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+							</form> 
+						
 						</span>
 					</div>
 					<div class="mb-2 flex justify-between">

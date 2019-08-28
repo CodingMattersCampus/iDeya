@@ -25,7 +25,6 @@
                     <th class="text-left p-3 px-5">Reg. Fee</th>
                     <th class="text-left p-3 px-5">No. of Day/s</th>
                     <th class="text-left p-3 px-5">Status</th>
-                    <th class="text-left p-3 px-5">Action</th>
                 </tr>
                 <?php  $i=1;?>
                 @foreach($events as $event)
@@ -40,7 +39,6 @@
                     <td class="p-3 px-5">{{$event->reg_fee}}</td>
                     <td class="p-3 px-5">{{$event->no_of_days}}</td>
                     <td class="p-3 px-5"><div class="bg-yellow-500  text-white text-sm px-2 py-1  rounded-full ml-2 text-center ">{{$event->status}}</div></td>
-                    <td class="p-3 px-5"><a href="#" class="hover:text-red-600 text-gray-600"><i class="fas fa-trash"></i></a></td>
                 </tr>
                 @endforeach
             </tbody>
