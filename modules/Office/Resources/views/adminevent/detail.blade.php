@@ -31,6 +31,11 @@
 					</div>
 
 					<div class="mb-2 flex justify-between">
+						<span class="text-sm font-semibold">Time:</span>
+						<span class="text-righ text-sm">{{$event->start_time}} - {{$event->start_time}}</span>
+					</div>
+
+					<div class="mb-2 flex justify-between">
 						<span class="text-sm font-semibold">Date:</span>
 						<span class="text-righ text-sm">{{$event->date}}</span>
 					</div>

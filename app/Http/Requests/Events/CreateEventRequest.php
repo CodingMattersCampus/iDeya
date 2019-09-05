@@ -27,7 +27,9 @@ class CreateEventRequest extends FormRequest
             'title' => 'required|string',
             'type_id' => 'required|integer',
             'date' => 'required|date',
-            'eventbudget' => 'required|integer',
+            'start_time' => 'required|time',
+            'end_time' => 'required|time',
+            'expected_no' => 'required|integer',
         ];
     }
 }

@@ -9,6 +9,7 @@ $factory->define(EventSpeaker::class, function (Faker $faker) {
         'email' => $faker->email,
         'organization' => $faker->company,
         'profession' => $faker->title,
-        'contact' =>$faker->phoneNumber,
+        'contact' => $faker->phoneNumber,
+        'description' => $faker->paragraph, 
     ];
 });

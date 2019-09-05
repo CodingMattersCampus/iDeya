@@ -1,15 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Event;
 
 use App\Event;
 use App\Speaker;
-use App\EventType;
-use App\Http\Requests\Events\CreateEventRequest;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+use App\Http\Controllers\Controller;
 
-class EventController extends Controller
+class SpeakerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +16,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::all();
-        return view('event.index', compact('events'));
+        $speaker = Speaker::all();
+        return view('event.speaker', compact('events'));
     }
 
     /**
@@ -29,9 +27,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        $eventTypes = EventType::all();
-        $eventSpeakers = Speaker::all();
-        return view('event.create', compact('eventTypes', 'eventSpeakers'));
+        return view('event.speaker', compact('events'));
     }
 
     /**
@@ -40,14 +36,11 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateEventRequest $request)
+    public function store(Request $request)
     {
         $data = $request->except('_token');
-        $data['slug'] = Str::slug($data['title']);
-
-        Event::create($data);
-
-        return redirect()->route('events.index');
+        Speaker::create($data);
+        return redirect()->route('events.speaker');
     }
 
     /**
@@ -69,7 +62,7 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('event.speaker', compact('events'));
     }
 
     /**
@@ -79,9 +72,11 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Speaker $speaker, Events $event)
     {
-        //
+        $data = $request->except('_token');
+        $event->update($data);
+        return redirect()->route('speaker.detail', compact('events'));
     }
 
     /**
@@ -90,10 +85,10 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, Speaker $speaker)
     {
         $data = $request->except('_token');
-        $event->delete();
-        return redirect()->route('adminevent.index');
+        $speaker->delete();
+        return redirect()->route('event.speaker');
     }
 }

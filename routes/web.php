@@ -27,13 +27,13 @@ Route::group(['middleware' => 'guest'], function() {
     });
 });
 
-
 Route::group(["prefix"=>'events'], function(){
 	Route::group(['namespace' => 'Event'], function(){
 		Route::get('/{event}/register', "RegistrationPageController")->name('register');
 		Route::post('/{event}/participant',"AddParticipantController")->name('events.participant.add');
 		Route::get('/{event}/seedetails', "SeeDetails")->name('event.seedetails');
-		Route::get('/{participant}/welcome', "WelcomeController")->name('event.welcome');   
+		Route::get('/{participant}/welcome', "WelcomeController")->name('event.welcome');
+        Route::get('{event}/speaker/detail', 'SpeakerDetailController')->name('event.speakerdetail');  
 	});
     Route::group(['namespace' => '\Modules\Office\Http\Controllers\Participant'], function(){
         Route::get('{event}/signin',"SigninController")->name('participant.signin');

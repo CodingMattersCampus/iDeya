@@ -3,16 +3,13 @@
 namespace Modules\Office\Http\Controllers\Event;
 
 use App\Event;
-use App\Budget;
-use App\EventType;
-use App\EventBudget;
-use App\Http\Requests\Events\CreateEventRequest;
+use App\Speaker;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use App\Http\Requests\Events\AddSpeakerRequest;
 
-class EventListingController extends Controller
+class AdminSpeakerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,8 +17,8 @@ class EventListingController extends Controller
      */
     public function index()
     {
-        $events = Event::all();
-        return view('office::adminevent.index', compact('events'));
+        $speaker = Speaker::all();
+        return view('office::adminevent.speaker.index', compact('event'));
     }
 
     /**
@@ -30,8 +27,7 @@ class EventListingController extends Controller
      */
     public function create()
     {
-        $eventTypes = EventType::all();
-        return view('office::adminevent.create', compact('eventTypes'));
+        return view('office::adminevent.speaker.create');
     }
 
     /**
@@ -39,13 +35,12 @@ class EventListingController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(CreateEventRequest $request)
+    public function store(AddSpeakerRequest $request)
     {
         $data = $request->except('_token');
-        $data['slug'] = Str::slug($data['title']);
 
-        Event::create($data);
-        return redirect()->route('adminevent.index');
+        Speaker::create($data);
+        return redirect()->route('adminevent.speaker.index');
     }
 
     /**
@@ -63,9 +58,9 @@ class EventListingController extends Controller
      * @param int $id
      * @return Response
      */
-    public function edit(Event $event)
+    public function edit(Speaker $speaker, Event $event)
     {
-        return view('office::adminevent.edit', compact('event'));
+        return view('office::adminevent.speaker.edit', compact('events'));
     }
 
     /**
@@ -74,11 +69,11 @@ class EventListingController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, Event $event)
+    public function update(Request $request, Speaker $speaker, Event $event)
     {
         $data = $request->except('_token');
         $event->update($data);
-        return redirect()->route('adminevent.detail', compact('event'));
+        return redirect()->route('adminevent.speaker.detail', compact('event'));
     }
 
     /**
@@ -86,10 +81,10 @@ class EventListingController extends Controller
      * @param int $id
      * @return Response
      */
-    public function destroy(Request $request, Event $event)
+    public function destroy(Request $request, Speaker $speaker, Event $event)
     {
         $data = $request->except('_token');
         $event->delete();
-        return redirect()->route('adminevent.index');
+        return redirect()->route('adminevent.speaker.index');
     }
 }

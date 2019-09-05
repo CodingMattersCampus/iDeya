@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Events;
 
+
 use Illuminate\Foundation\Http\FormRequest;
 
 class ParticipantRegistrationRequest extends FormRequest

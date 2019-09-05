@@ -45,9 +45,12 @@
         <!--Left Col-->
         <div class="flex flex-col w-full xl:w-2/5 justify-center lg:items-start overflow-y-hidden">
             <h1 class="my-4 text-3xl md:text-5xl text-gray-800 font-bold leading-tight text-center md:text-left slide-in-bottom-h1">{{$ongoingEvent->title}}</h1>
-            <p class="leading-normal text-base md:text-2xl mb-8 text-center md:text-left slide-in-bottom-subtitle">{{$ongoingEvent->description}}</p>
             <p class="leading-normal text-base md:text-2xl mb-8 text-center md:text-left slide-in-bottom-subtitle"><?php echo date('F j, Y', strtotime($event->date)); ?></p>
-        
+            <p class="leading-normal text-base md:text-2xl mb-8 text-center md:text-left slide-in-bottom-subtitle">{{$ongoingEvent->eventType->name}}</p>
+            <p class="leading-normal text-base md:text-2xl mb-8 text-center md:text-left slide-in-bottom-subtitle">{{$ongoingEvent->guestspeaker}}</p>
+            <p class="leading-normal text-base md:text-2xl mb-8 text-center md:text-left slide-in-bottom-subtitle">{{$ongoingEvent->reg_fee}}</p>          
+            <p class="leading-normal text-base md:text-2xl mb-8 text-center md:text-left slide-in-bottom-subtitle">{{$ongoingEvent->description}}</p>
+            
            
             <p class="text-gray-800 font-bold pb-8 lg:pb-6 text-center md:text-left fade-in">Already Registered?</p>
             <div class="flex w-full justify-center md:justify-start pb-24 lg:pb-0 fade-in">
@@ -117,7 +120,7 @@
                     </div>
                     <div class="pb-2 border-l border-r border-b rounded-b-lg text-center border-white bg-white">
                       <span class="text-xs leading-normal">
-                        8:00 am to 5:00 pm
+                        {{$event->time}}
                       </span>
                     </div>
                   </div>

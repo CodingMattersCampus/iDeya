@@ -3,6 +3,7 @@
 use App\User;
 use App\Event;
 use App\Budget;
+use App\Speaker;
 use App\Participant;
 use App\EventBudget;
 use App\EventParticipant;
@@ -18,6 +19,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call(EventSpeakerSeeder::class);
         $this->call(EventTypeSeeder::class);
         
         factory(Event::class,10)->create();
@@ -31,8 +33,6 @@ class DatabaseSeeder extends Seeder
         for ($i=0; $i < Event::count(); $i++) { 
         	factory(EventBudget::class)->create(['budget_id'=> random_int(1, Budget::count()), 'event_id'=> random_int(1, Event::count())]);
         }
-
-
 
         $employee = factory(Employee::class)
             ->create([

@@ -13,7 +13,7 @@ class AddSpeakerRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return Auth::check();
     }
 
     /**
@@ -27,8 +27,6 @@ class AddSpeakerRequest extends FormRequest
             'first_name' => 'required|string',
             'last_name' => 'required|string',
             'email' => 'required|string',
-            'organization' => 'string',
-            'profession' => 'string',
             'contact' => 'required|string',
         ];
     }

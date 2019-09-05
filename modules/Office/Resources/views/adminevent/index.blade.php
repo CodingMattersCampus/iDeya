@@ -19,6 +19,7 @@
                     <th class="text-left p-3 px-5">Event Title</th>
                     <th class="text-left p-3 px-5">Event Type</th>
                     <th class="text-left p-3 px-5">Date</th>
+                    <th class="text-left p-3 px-5">Event Time</th>
                     <th class="text-left p-3 px-5">Event Budget</th>
                     <th class="text-left p-3 px-5">No. of Participants</th>
                     <th class="text-left p-3 px-5">Guest Speaker</th>
@@ -33,6 +34,7 @@
                     <td class="p-3 px-5"><a href="{{route('adminevent.detail', compact('event'))}}" class="hover:underline">{{$event->title}}</a></td>
                     <td class="p-3 px-5">{{$event->eventType->name}}</td>
                     <td class="p-3 px-5">{{$event->date}}</td>
+                    <td class="p-3 px-5">{{$event->start_time}} - {{$event->end_time}}</td>
                     <td class="p-3 px-5"> {{optional(optional($event->eventBudget)->budget)->total_amount}}</td>
                     <td class="p-3 px-5">{{$event->eventParticipants->count()}} / {{$event->expected_no}}</td>
                     <td class="p-3 px-5">{{$event->guestspeaker}}</td>

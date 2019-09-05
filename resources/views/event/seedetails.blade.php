@@ -56,7 +56,7 @@
 
                     <div class="mb-2 flex justify-between">
                         <span class="font-semibold">Guest Speaker:</span>
-                        <span class="">{{$event->guestspeaker}}</span>
+                        <span class="text-blue-500"><a href="{{route('event.speakerdetail', compact('event'))}}">{{$event->guestspeaker}}</a></span>
                     </div>
 
                     <div class="mb-2 flex justify-between">
